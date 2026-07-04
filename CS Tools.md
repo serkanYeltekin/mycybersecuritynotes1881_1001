@@ -234,7 +234,8 @@ hashcat -I → GPU/CPU gör
 hashcat -b → benchmark
 hashcat --example-hashes → hash örnekleri
 
-## Dirb
+## Dirb 
+    Dirb yerine artık Gobuster / ffuf / dirsearch tercih ediliyor.
 
 siber güvenlikte kullanılan bir web içerik tarama (content discovery) aracıdır.
 
@@ -247,6 +248,7 @@ Hedef siteye çok sayıda HTTP isteği gönderir
 Sunucudan gelen cevaplara (200, 403, 404 vs.) bakarak hangi dizinlerin var olduğunu anla
 
 ## Dirbuster
+    Dirbuster yerine artık Gobuster / ffuf / dirsearch tercih ediliyor.
 
 DirBuster, web uygulamalarında gizli dizin ve dosyaları keşfetmek için kullanılan bir güvenlik test aracıdır.
 
@@ -362,3 +364,54 @@ dotdotpwn -m http -h 192.168.1.50 -d 8 -f /etc/shadow
 
 ## hash-identifier
 Hash-Identifier, verilen bir hash değerinin hangi algoritma ile oluşturulmuş olabileceğini tahmin etmeye yarayan bir araçtır. MD5, SHA-1, SHA-256 gibi farklı hash türlerini hızlıca analiz ederek olası eşleşmeleri listeler. Özellikle sızma testleri ve adli bilişim çalışmalarında, hash türünü belirlemek için pratik bir başlangıç noktası sağlar.
+
+## WAFW00F
+
+WAFW00F, web uygulamalarının arkasında bir **Web Application Firewall (WAF)** olup olmadığını tespit etmek için kullanılan bir güvenlik aracıdır.
+
+Temel amacı, bir web sitesinin hangi WAF teknolojisini kullandığını (örneğin Cloudflare, AWS WAF, Imperva vb.) analiz etmektir. Bunu yaparken HTTP istekleri gönderir ve gelen yanıtları çeşitli imza ve davranış kalıplarıyla karşılaştırır.
+
+**Öne çıkan özellikleri:**
+
+* Hedef sitede WAF olup olmadığını tespit eder
+* Kullanılan WAF türünü tahmin edebilir
+* Birden fazla teknik (header analizi, hata mesajları, davranış analizi) kullanır
+* Pentest ve güvenlik analizlerinde yaygın kullanılır
+* wafw00f google.com şeklinde kullanılır.
+
+
+## LBD (Load Balancing Detector) kısa not
+
+LBD, bir web sitesinin arkasında **load balancing (yük dengeleme)** olup olmadığını tespit etmek için kullanılan basit bir güvenlik aracıdır.
+
+Temel amacı, bir alan adının tek bir sunucuya mı yoksa birden fazla sunucuya mı yönlendirildiğini anlamaktır. Bunu genellikle DNS yanıtları ve HTTP cevaplarındaki tutarsızlıkları analiz ederek yapar.
+
+**Öne çıkan özellikleri:**
+
+* Hedefte load balancer olup olmadığını tespit eder
+* Farklı IP veya sunucu yanıtlarını karşılaştırır
+* Basit ve hızlı bir kontrol sağlar
+* Pentest ve ağ keşif aşamasında kullanılır
+* lbd google.com şeklinde kullanılır.
+
+## Nikto
+
+* **Tanım:** Nikto, açık kaynaklı bir **web sunucu güvenlik tarama aracıdır**.
+* **Amaç:** Web sunucularındaki zafiyetleri, yanlış yapılandırmaları ve bilinen açıkları tespit eder.
+* **Özellikler:**
+
+  * 6000+ potansiyel tehlikeli dosya/program taraması
+  * Eski yazılım sürümlerini tespit etme
+  * Sunucu yapılandırma hatalarını bulma
+  * SSL ve HTTP başlık analizleri
+* **Kullanım Alanı:** Penetrasyon testleri ve güvenlik analizleri
+* **Avantaj:** Hızlı ve kapsamlı tarama, kolay kullanım
+* **Dezavantaj:** Gürültülü (çok istek gönderir), IDS/IPS sistemlerine kolay yakalanır
+
+**Örnek komut:**
+
+```bash
+nikto -h http://hedefsite.com
+```
+
+İstersen daha detaylı kullanım parametrelerini veya örnek senaryoları da ekleyebilirim.
