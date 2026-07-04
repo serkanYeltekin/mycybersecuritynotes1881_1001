@@ -233,3 +233,5 @@ XXE, XML parser’ın dış kaynaklara erişebilmesini kötüye kullanan bir enj
 ---
 
 İstersen gerçek bir XXE exploit örneğini adım adım da gösterebilirim veya bunu nasıl test edebileceğini anlatabilirim.
+
+
